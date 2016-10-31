@@ -57,8 +57,8 @@
           </provider>
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="-242">
-                <caret line="66" column="39" selection-start-line="66" selection-start-column="39" selection-end-line="66" selection-end-column="39" />
+              <first_editor relative-caret-position="163">
+                <caret line="67" column="17" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -353,7 +353,7 @@
       <workItem from="1477856369461" duration="710000" />
       <workItem from="1477857285768" duration="1600000" />
       <workItem from="1477923755389" duration="14849000" />
-      <workItem from="1477946054576" duration="5684000" />
+      <workItem from="1477946054576" duration="5762000" />
     </task>
     <task id="LOCAL-00001" summary="Added README and gitignore files. &#10;Changed 'online' to 'live' mode. &#10;">
       <created>1477946100548</created>
@@ -411,7 +411,14 @@
       <option name="project" value="LOCAL" />
       <updated>1477952666904</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added Create to README and Update sample usage.">
+      <created>1477952866803</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1477952866803</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -447,7 +454,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22917000" />
+    <option name="totallyTimeSpent" value="22995000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="789" extended-state="6" />
@@ -511,7 +518,8 @@
     <MESSAGE value="Wrote initial tests for the PIN functionality." />
     <MESSAGE value="Updated localDB with PIN functionality." />
     <MESSAGE value="Finished Google Spreadsheet PIN functionality." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished Google Spreadsheet PIN functionality." />
+    <MESSAGE value="Added Create to README and Update sample usage." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Create to README and Update sample usage." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -745,8 +753,8 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="-242">
-            <caret line="66" column="39" selection-start-line="66" selection-start-column="39" selection-end-line="66" selection-end-column="39" />
+          <first_editor relative-caret-position="163">
+            <caret line="67" column="17" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
             <folding />
           </first_editor>
           <second_editor />

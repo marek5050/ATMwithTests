@@ -61,11 +61,11 @@ $ LIVE=1 mocha -t 4000
 ### API 
 -l  optional live mode connected to the Google Spreadsheet   
 
-atm [-l] create \<user id> \<pin>
+atm [-l] create \<user id> \<pin>   
 atm [-l] deposit \<user id> \<pin> \<amount>   
 atm [-l] withdraw \<user id> \<pin> \<amount>  
-atm [-l] checkBalance \<user id> \<pin>
-atm [-l] clear 
+atm [-l] checkBalance \<user id> \<pin>   
+atm [-l] clear   
 
 #### Sample run
  
