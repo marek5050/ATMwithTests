@@ -12,35 +12,55 @@ program
     .usage('[options] command')
     .option('-l, --live', 'Use Google Spreadsheets');
 
+var str = "";
 
 program
-    .version('0.0.1')
     .command('deposit <id> <amount>')
     .action(function (id, amount) {
         if(program.live){
             atm.database = atm.googleDB;
         }
-
-        console.log(id,amount,response);
+        str=` User ${id} has deposited ${amount} and has a balance of `;
+        atm.deposit(Number(id),Number(amount),response);
     });
 
 program
-    .version('0.0.1')
     .command('withdraw <id> <amount>')
     .action(function (id, amount) {
-        if(program.online){
+        if(program.live){
             atm.database = atm.googleDB;
         }
+        str = ` User ${id} has withdrawn ${amount} and has a balance of `;
+        atm.withdraw(id,amount,response);
+    });
 
-        console.log(id,amount,response);
+program
+    .command('checkBalance <id>')
+    .action(function (id, amount) {
+        if(program.live){
+            atm.database = atm.googleDB;
+        }
+        str = ` User ${id} has a balanced of `;
+        atm.checkBalance(id, response);
+    });
+
+program
+    .command('clear')
+    .action(function (id, amount) {
+        if(program.live){
+            atm.database = atm.googleDB;
+        }
+        str = ` The database has been cleared. `;
+        atm.clear(function(){
+            response(1,"");
+        });
     });
 
 function response(status, information){
     if(status===1){
-        console.log(chalk.green(information));
+        console.log(str + chalk.green(information));
     }else{
-        console.log(chalk.red(information));
+        console.log(str + chalk.red(information));
     }
 }
-
 program.parse(process.argv);

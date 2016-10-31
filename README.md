@@ -14,7 +14,7 @@ LIVE=1 mocha -t 4000
 ```
 
 ### API 
--l  options live parameters
+-l  options live parameters   
 
-atm [-l] deposit <user id> <amount> 
-atm [-l] withdraw <user id> <amount>
+atm [-l] deposit <user id> <amount>   
+atm [-l] withdraw <user id> <amount>   
