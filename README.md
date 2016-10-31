@@ -61,12 +61,13 @@ $ LIVE=1 mocha -t 4000
 ### API 
 -l  optional live mode connected to the Google Spreadsheet   
 
-atm [-l] deposit \<user id> \<amount>   
-atm [-l] withdraw \<user id> \<amount>  
-atm [-l] checkBalance \<user id> 
+atm [-l] create \<user id> \<pin>
+atm [-l] deposit \<user id> \<pin> \<amount>   
+atm [-l] withdraw \<user id> \<pin> \<amount>  
+atm [-l] checkBalance \<user id> \<pin>
 atm [-l] clear 
 
-#### Example
+#### Sample run
  
 ```
 $ ./app.js -l clear
@@ -75,22 +76,22 @@ $ ./app.js -l clear
 $ ./app.js clear
  The database has been cleared.
   
-$ ./app.js deposit 1 100
- User 1 has deposited 100 and has a balance of 100
+$ ./app.js -l create 5 1910
+ Created user 5 with pin: 1910. 0
  
-$ ./app.js -l deposit 1 200
- User 1 has deposited 200 and has a balance of 200
+$ ./app.js -l checkBalance 5 1910
+ User 5 has a balanced of 0
  
-$ ./app.js -l checkBalance 1 
- User 1 has a balanced of 200
+$ ./app.js -l deposit 5 1911 200
+There was a problem retrieving the account. Invalid pin
+
+$ ./app.js -l deposit 5 1910 500
+ User 5 has deposited 500 and has a balance of 500
  
-$ ./app.js -l deposit 1 200
- User 1 has deposited 200 and has a balance of 400
+$ ./app.js -l checkBalance 5 1910
+ User 5 has a balanced of 500
  
-$ ./app.js -l checkBalance 1 
- User 1 has a balanced of 400
- 
-$ ./app.js checkBalance 1 
- User 1 has a balanced of 100
+$ ./app.js -l checkBalance 5 1911
+Invalid pin
 
 ```
