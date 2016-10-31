@@ -1,0 +1,11 @@
+{
+  "name": "atm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha ; LIVE=1 mocha -t 4000"
+  },
+  "author": "",
+  "license": "ISC"
+}
