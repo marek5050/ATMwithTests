@@ -4,8 +4,16 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "mocha ; LIVE=1 mocha -t 4000"
+    "test": "./node_modules/mocha/bin/mocha ; LIVE=1 ./node_modules/mocha/bin/mocha -t 4000"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "configstore": "^2.1.0",
+    "google-spreadsheet": "^2.0.3",
+    "mocha": "^3.1.2"
+  }
 }
