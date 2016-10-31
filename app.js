@@ -4,22 +4,21 @@
  */
 var atm = require("./lib/atm.js");
 var program = require('commander');
-var googleDB = require("./lib/googleDB.js");
 var chalk = require('chalk');
 
 
 program
     .version('0.0.1')
     .usage('[options] command')
-    .option('-o, --online', 'Use Google Spreadsheets');
+    .option('-l, --live', 'Use Google Spreadsheets');
 
 
 program
     .version('0.0.1')
     .command('deposit <id> <amount>')
     .action(function (id, amount) {
-        if(program.online){
-            atm.database = googleDB;
+        if(program.live){
+            atm.database = atm.googleDB;
         }
 
         console.log(id,amount,response);
@@ -30,7 +29,7 @@ program
     .command('withdraw <id> <amount>')
     .action(function (id, amount) {
         if(program.online){
-            atm.database = googleDB;
+            atm.database = atm.googleDB;
         }
 
         console.log(id,amount,response);
