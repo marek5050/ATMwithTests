@@ -64,3 +64,33 @@ $ LIVE=1 mocha -t 4000
 atm [-l] deposit \<user id> \<amount>   
 atm [-l] withdraw \<user id> \<amount>  
 atm [-l] checkBalance \<user id> 
+atm [-l] clear 
+
+#### Example
+ 
+```
+$ ./app.js -l clear
+ The database has been cleared. 
+ 
+$ ./app.js clear
+ The database has been cleared.
+  
+$ ./app.js deposit 1 100
+ User 1 has deposited 100 and has a balance of 100
+ 
+$ ./app.js -l deposit 1 200
+ User 1 has deposited 200 and has a balance of 200
+ 
+$ ./app.js -l checkBalance 1 
+ User 1 has a balanced of 200
+ 
+$ ./app.js -l deposit 1 200
+ User 1 has deposited 200 and has a balance of 400
+ 
+$ ./app.js -l checkBalance 1 
+ User 1 has a balanced of 400
+ 
+$ ./app.js checkBalance 1 
+ User 1 has a balanced of 100
+
+```
