@@ -16,7 +16,7 @@ var str = "";
 
 program
     .command('deposit <id> <pin> <amount>')
-    .action(function (id, amount) {
+    .action(function (id,pin, amount) {
         if(program.live){
             atm.database = atm.googleDB;
         }
@@ -26,7 +26,7 @@ program
 
 program
     .command('withdraw <id> <pin> <amount>')
-    .action(function (id, amount) {
+    .action(function (id,pin, amount) {
         if(program.live){
             atm.database = atm.googleDB;
         }
@@ -46,7 +46,7 @@ program
 
 program
     .command('clear')
-    .action(function (id, amount) {
+    .action(function () {
         if(program.live){
             atm.database = atm.googleDB;
         }
@@ -56,11 +56,21 @@ program
         });
     });
 
+program
+    .command('create <id> <pin>')
+    .action(function (id,pin) {
+        if(program.live){
+            atm.database = atm.googleDB;
+        }
+        str = ` Created user ${id} with pin: ${pin}. `;
+        atm.create(id,pin,response);
+    });
+
 function response(status, information){
     if(status===1){
         console.log(str + chalk.green(information));
     }else{
-        console.log(str + chalk.red(information));
+        console.log(chalk.red(information));
     }
 }
 program.parse(process.argv);
