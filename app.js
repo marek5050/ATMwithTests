@@ -15,33 +15,33 @@ program
 var str = "";
 
 program
-    .command('deposit <id> <amount>')
+    .command('deposit <id> <pin> <amount>')
     .action(function (id, amount) {
         if(program.live){
             atm.database = atm.googleDB;
         }
         str=` User ${id} has deposited ${amount} and has a balance of `;
-        atm.deposit(Number(id),Number(amount),response);
+        atm.deposit(Number(id),pin, Number(amount),response);
     });
 
 program
-    .command('withdraw <id> <amount>')
+    .command('withdraw <id> <pin> <amount>')
     .action(function (id, amount) {
         if(program.live){
             atm.database = atm.googleDB;
         }
         str = ` User ${id} has withdrawn ${amount} and has a balance of `;
-        atm.withdraw(id,amount,response);
+        atm.withdraw(id,pin, amount,response);
     });
 
 program
-    .command('checkBalance <id>')
-    .action(function (id, amount) {
+    .command('checkBalance <id> <pin>')
+    .action(function (id, pin) {
         if(program.live){
             atm.database = atm.googleDB;
         }
         str = ` User ${id} has a balanced of `;
-        atm.checkBalance(id, response);
+        atm.checkBalance(id, pin, response);
     });
 
 program

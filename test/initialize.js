@@ -10,32 +10,56 @@ describe('ATMexample', function () {
            atm.database = atm.googleDB;
        }
     });
-    describe('.deposit()', function () {
+    describe('.create()', function (){
         before(function(done){
             atm.clear(done);
         });
+        context('create user <1>', function (done) {
+            atm.create(1,1500, function (status, amount) {
+                if (status != 1)
+                    done(status);
+                else {
+                    assert(amount,0);
+                }
+                done();
+            });
 
+            it('the user should have an initial balance of $0 ', function (done) {
+                atm.checkBalance(1,1500, function(status,amount){
+                    assert(amount,0);
+                    done();
+                })
+            });
+        });
+
+    describe('.deposit()', function () {
         context('deposit $100 for a user <1>', function (done) {
             it('the user <1>  should be able to deposit $100', function (done) {
-                atm.deposit(1, 100, function(status, amount){
+                atm.deposit(1,1500, 100, function(status, amount){
                     if(status!=1 )
                         done(status);
-                    else done();
+                    else {
+                        assert.equal(amount,100);
+                        done();
+                    }
                 });
             });
 
             it('the atm should have a balance of $100', function(done){
-                chai.assert(atm.amount, 100);
+                assert.equal(atm.amount, 100);
                 done();
             })
         });
 
         context('deposit $200 for a user <2>', function (done) {
             it('the user <2>  should be able to deposit $200', function (done) {
-                atm.deposit(2, 200, function(status, amount){
+                atm.deposit(2,2500, 200, function(status, amount){
                     if(status!=1 )
                         done(status);
-                    else done();
+                    else{
+                        assert.equal(amount,200);
+                        done();
+                    }
                 });
             });
 
@@ -86,7 +110,7 @@ describe(".checkBalance()", function(){
 
         context('withdraw $100 for a user <1>', function (done) {
             it('the user <1>  should be able to withdraw $100', function (done) {
-                atm.withdraw(1, 100, function(status, amount){
+                atm.withdraw(1, 1500, 100, function(status, amount){
                     if(status!=1 )
                         done(status);
                     else done();
@@ -94,7 +118,7 @@ describe(".checkBalance()", function(){
             });
 
             it("the user's balance should show $0", function(done){
-                atm.checkBalance(1,function(status,amount){
+                atm.checkBalance(1,1500,function(status,amount){
                     if(status!=1)
                         done(status);
                     else {
@@ -111,7 +135,7 @@ describe(".checkBalance()", function(){
 
         context('withdraw $100 for a user <2>', function (done) {
             it('the user <2>  should be able to withdraw $100', function (done) {
-                atm.withdraw(2, 100, function(status, amount){
+                atm.withdraw(2, 1500, 100, function(status, amount){
                     if(status!=1 )
                         done(status);
                     else done();
@@ -119,7 +143,7 @@ describe(".checkBalance()", function(){
             });
 
             it("the user's balance should show $100", function(done){
-                atm.checkBalance(2,function(status,amount){
+                atm.checkBalance(2,2500, function(status,amount){
                     if(status!=1)
                         done(status);
                     else {
